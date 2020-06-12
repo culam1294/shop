@@ -1,4 +1,4 @@
-import fetchProductsApi from "../api/ApiCaller";
+import fetchProductsApi from "../api/CallApi";
 
 export const fetchSearchProducts = () => {
   return async (dispatch) => {

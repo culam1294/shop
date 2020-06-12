@@ -4,15 +4,25 @@ import { Carousel } from "antd";
 import "./Carousel.css";
 
 export default function CarouselHome() {
-  const data = useSelector((state) => state.data.dataProducts);
-  const image = data.map((item,key) => (
-    <div key={key}>
-      <img src={item.image} alt="img"/>
-    </div>
-  ));
+  const dataCarousel = useSelector((state) => state.data.dataProducts);
+  const dataCarouselNew = [];
+  dataCarousel.forEach((element) => {
+    if (element.id < 6) {
+      dataCarouselNew.push(element);
+    }
+  });
+
   return (
     <Carousel effect="fade" autoplay>
-      {image}
+      {dataCarouselNew.map((item, key) => (
+        <div key={key}>
+          <img
+            style={{ height: "100%", width: "100%", objectFit: "fill" }}
+            src={item.image}
+            alt="img"
+          />
+        </div>
+      ))}
     </Carousel>
   );
 }

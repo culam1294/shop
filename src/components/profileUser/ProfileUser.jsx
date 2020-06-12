@@ -12,7 +12,7 @@ import Page1 from "./Page1";
 import Page2 from "./Page2";
 import Page3 from "./Page3";
 import NotFound from "../notFound";
-import { Menu } from "antd";
+import { Menu, Layout } from "antd";
 
 export default function ProfileUser() {
   const match = useRouteMatch();
@@ -24,7 +24,7 @@ export default function ProfileUser() {
   // const handleClick = () => {
   //   history.push("/");
   // };
-
+  const { Content } = Layout;
   return (
     <Router>
       <div style={{ display: "flex" }}>
@@ -45,13 +45,14 @@ export default function ProfileUser() {
             <Link to={`${match.url}/page3`}>address management</Link>
           </Menu.Item>
         </Menu>
-
+        <Content style={{minHeight: 700}}>
         <Switch>
           <Route exact path={`${match.url}/page1`} component={Page1} />
           <Route path={`${match.url}/page2`} component={Page2} />
           <Route path={`${match.url}/page3`} component={Page3} />
           <Route path={`${match.url}/*`} component={NotFound} />
         </Switch>
+        </Content>
       </div>
     </Router>
   );

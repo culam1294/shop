@@ -19,6 +19,9 @@ export default function Search() {
       if (item.name.indexOf(value) !== -1) {
         listSearch.push(item);
       }
+      if (item.description.indexOf(value) !== -1) {
+        listSearch.push(item);
+      }
     });
     dispatch(getProducts(listSearch));
   };
@@ -28,8 +31,8 @@ export default function Search() {
       allowClear="true"
       onSearch={(value) => onSearch(value)}
       enterButton
-      placeholder="Search..."
-      style={{ marginLeft: 15 }}
+      placeholder="Name, description..."
+      style={{ margin: "0px 20px" }}
     />
   );
 }

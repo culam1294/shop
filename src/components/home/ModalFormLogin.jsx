@@ -32,11 +32,11 @@ export default function ModalForm() {
   return (
     <>
       <Button
-        style={{ fontSize: "1.5em" }}
-        type="link"
+        style={{ margin: '0px 15px' }}
+        type="primary"
         onClick={() => setVisible(true)}
       >
-        Login
+        LOGIN
       </Button>
       <Modal
         closable={false}

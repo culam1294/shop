@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Avatar, Popconfirm, Badge, Space } from "antd";
+import { Button, Avatar, Popconfirm, Popover } from "antd";
 import { QuestionCircleOutlined, UserOutlined } from "@ant-design/icons";
 import ModalFormLogin from "./ModalFormLogin";
 import ModalFormSignin from "./ModalFormSignin";
@@ -12,40 +12,52 @@ export default function LoginNavbar() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const onClickAvatar = () => {
+  const onProfile = () => {
     history.push("/profile/page1");
+  };
+  const onAddress = () => {
+    history.push("/profile/page3");
   };
 
   const loginMenu = () => (
-    <>
+    <div style={{ display: "flex" }}>
       <ModalFormLogin />
       <ModalFormSignin />
-    </>
+    </div>
   );
   const logoutMenu = () => (
-    <Space>
-      <Badge count={1}>
+    <div style={{ display: "flex" }}>
+      <Popover
+        placement="bottom"
+        // title={text}
+        content={
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <Button type="link" onClick={() => onProfile()}>
+              View Profile
+            </Button>
+            <Button type="link" onClick={() => onAddress()}>Address Management</Button>
+          </div>
+        }
+        trigger="click"
+      >
         <Avatar
-          onClick={() => onClickAvatar()}
-          style={{ backgroundColor: "#87d068", cursor: "pointer" }}
+          style={{
+            backgroundColor: "#87d068",
+            cursor: "pointer",
+            margin: "0px 20px",
+          }}
           icon={<UserOutlined />}
         />
-      </Badge>
+      </Popover>
       <Popconfirm
         placement="bottomRight"
         onConfirm={() => dispatch(isLogin())}
         title="Are you sure Logout？"
         icon={<QuestionCircleOutlined style={{ color: "red" }} />}
       >
-        <Button type="link" style={{ fontSize: "1.5em" }}>
-          Logout
-        </Button>
+        <Button type="primary">LOGOUT</Button>
       </Popconfirm>
-    </Space>
+    </div>
   );
-  return (
-    <Space style={{ marginBottom: 3, marginLeft: 30 }}>
-      {login ? logoutMenu() : loginMenu()}
-    </Space>
-  );
+  return <div style={{}}>{login ? logoutMenu() : loginMenu()}</div>;
 }
