@@ -2,12 +2,14 @@ import * as React from 'react';
 import Group from './button-group';
 import { Omit } from '../_util/type';
 import { SizeType } from '../config-provider/SizeContext';
-declare const ButtonTypes: ["default", "primary", "ghost", "dashed", "link"];
+declare const ButtonTypes: ["default", "primary", "ghost", "dashed", "link", "text"];
 export declare type ButtonType = typeof ButtonTypes[number];
 declare const ButtonShapes: ["circle", "circle-outline", "round"];
 export declare type ButtonShape = typeof ButtonShapes[number];
 declare const ButtonHTMLTypes: ["submit", "button", "reset"];
 export declare type ButtonHTMLType = typeof ButtonHTMLTypes[number];
+export declare type LegacyButtonType = ButtonType | 'danger';
+export declare function convertLegacyProps(type?: LegacyButtonType): ButtonProps;
 export interface BaseButtonProps {
     type?: ButtonType;
     icon?: React.ReactNode;

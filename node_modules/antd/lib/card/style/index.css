@@ -17,14 +17,16 @@
   position: relative;
   background: #fff;
   border-radius: 2px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
 }
 .ant-card-rtl {
   direction: rtl;
 }
 .ant-card-hoverable {
   cursor: pointer;
+  -webkit-transition: border-color 0.3s, -webkit-box-shadow 0.3s;
+  transition: border-color 0.3s, -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s, border-color 0.3s;
+  transition: box-shadow 0.3s, border-color 0.3s, -webkit-box-shadow 0.3s;
 }
 .ant-card-hoverable:hover {
   border-color: transparent;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ProgressProps } from '../progress';
 export declare type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 export interface HttpRequestHeader {
     [key: string]: string;
@@ -61,6 +62,7 @@ export interface UploadLocale {
 }
 export declare type UploadType = 'drag' | 'select';
 export declare type UploadListType = 'text' | 'picture' | 'picture-card';
+export declare type UploadListProgressProps = Omit<ProgressProps, 'percent' | 'type'>;
 declare type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 declare type TransformFileHandler = (file: RcFile) => string | Blob | File | PromiseLike<string | Blob | File>;
 export interface UploadProps<T = any> {
@@ -96,6 +98,7 @@ export interface UploadProps<T = any> {
     transformFile?: TransformFileHandler;
     iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
     isImageUrl?: (file: UploadFile) => boolean;
+    progress?: UploadListProgressProps;
 }
 export interface UploadState<T = any> {
     fileList: UploadFile<T>[];
@@ -107,7 +110,7 @@ export interface UploadListProps<T = any> {
     onDownload?: (file: UploadFile<T>) => void;
     onRemove?: (file: UploadFile<T>) => void | boolean;
     items?: Array<UploadFile<T>>;
-    progressAttr?: Object;
+    progress?: UploadListProgressProps;
     prefixCls?: string;
     showRemoveIcon?: boolean;
     showDownloadIcon?: boolean;

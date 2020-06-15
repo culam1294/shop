@@ -33,17 +33,5 @@ export interface PaginationConfig extends PaginationProps {
     position?: PaginationPosition;
 }
 export declare type PaginationLocale = any;
-export default class Pagination extends React.Component<PaginationProps, {}> {
-    private token;
-    private inferredSmall;
-    componentDidMount(): void;
-    componentWillUnmount(): void;
-    getIconsProps: (prefixCls: string, direction: "ltr" | "rtl" | undefined) => {
-        prevIcon: JSX.Element;
-        nextIcon: JSX.Element;
-        jumpPrevIcon: JSX.Element;
-        jumpNextIcon: JSX.Element;
-    };
-    renderPagination: (contextLocale: any) => JSX.Element;
-    render(): JSX.Element;
-}
+declare const Pagination: React.FC<PaginationProps>;
+export default Pagination;

@@ -39,7 +39,7 @@ function scrollTo(y) {
 
     if ((0, _getScroll.isWindow)(container)) {
       container.scrollTo(window.pageXOffset, nextScrollTop);
-    } else if (container instanceof Document) {
+    } else if (container instanceof HTMLDocument || container.constructor.name === 'HTMLDocument') {
       container.documentElement.scrollTop = nextScrollTop;
     } else {
       container.scrollTop = nextScrollTop;

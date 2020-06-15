@@ -1,8 +1,10 @@
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 import * as React from 'react';
+import classNames from 'classnames';
 
 var Steps = function Steps(props) {
-  var _props$size = props.size,
-      size = _props$size === void 0 ? 'default' : _props$size,
+  var size = props.size,
       steps = props.steps,
       _props$percent = props.percent,
       percent = _props$percent === void 0 ? 0 : _props$percent,
@@ -11,37 +13,25 @@ var Steps = function Steps(props) {
       strokeColor = props.strokeColor,
       prefixCls = props.prefixCls,
       children = props.children;
+  var current = Math.floor(steps * (percent / 100));
+  var stepWidth = size === 'small' ? 2 : 14;
+  var styledSteps = [];
 
-  var getStyledSteps = function getStyledSteps() {
-    var current = Math.floor(steps * (percent / 100));
-    var stepWidth = size === 'small' ? 2 : 14;
-    var styleSteps = [];
-
-    for (var i = 0; i < steps; i++) {
-      var color = void 0;
-
-      if (i <= current - 1) {
-        color = strokeColor;
+  for (var i = 0; i < steps; i += 1) {
+    styledSteps.push( /*#__PURE__*/React.createElement("div", {
+      key: i,
+      className: classNames("".concat(prefixCls, "-steps-item"), _defineProperty({}, "".concat(prefixCls, "-steps-item-active"), i <= current - 1)),
+      style: {
+        backgroundColor: i <= current - 1 ? strokeColor : undefined,
+        width: stepWidth,
+        height: strokeWidth
       }
-
-      var stepStyle = {
-        backgroundColor: "".concat(color),
-        width: "".concat(stepWidth, "px"),
-        height: "".concat(strokeWidth, "px")
-      };
-      styleSteps.push( /*#__PURE__*/React.createElement("div", {
-        key: i,
-        className: "".concat(prefixCls, "-steps-item"),
-        style: stepStyle
-      }));
-    }
-
-    return styleSteps;
-  };
+    }));
+  }
 
   return /*#__PURE__*/React.createElement("div", {
     className: "".concat(prefixCls, "-steps-outer")
-  }, getStyledSteps(), children);
+  }, styledSteps, children);
 };
 
 export default Steps;

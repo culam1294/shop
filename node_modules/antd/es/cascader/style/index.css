@@ -214,6 +214,11 @@
 .ant-cascader-menu-item-disabled:hover {
   background: transparent;
 }
+.ant-cascader-menu-empty .ant-cascader-menu-item {
+  color: rgba(0, 0, 0, 0.25);
+  cursor: default;
+  pointer-events: none;
+}
 .ant-cascader-menu-item-active:not(.ant-cascader-menu-item-disabled),
 .ant-cascader-menu-item-active:not(.ant-cascader-menu-item-disabled):hover {
   font-weight: 600;
@@ -230,6 +235,10 @@
   position: absolute;
   right: 12px;
   color: rgba(0, 0, 0, 0.45);
+}
+.ant-cascader-menu-item-disabled.ant-cascader-menu-item-expand .ant-cascader-menu-item-expand-icon,
+.ant-cascader-menu-item-disabled.ant-cascader-menu-item-loading-icon {
+  color: rgba(0, 0, 0, 0.25);
 }
 .ant-cascader-menu-item .ant-cascader-menu-item-keyword {
   color: #ff4d4f;
@@ -259,16 +268,22 @@
   right: auto;
   left: 8px;
 }
-.ant-cascader-menu-rtl {
+.ant-cascader-menu-rtl .ant-cascader-menu {
   direction: rtl;
   border-right: none;
   border-left: 1px solid #f0f0f0;
 }
-.ant-cascader-menu-rtl:last-child {
+.ant-cascader-menu-rtl .ant-cascader-menu:first-child {
+  border-radius: 0 2px 2px 0;
+}
+.ant-cascader-menu-rtl .ant-cascader-menu:last-child {
   margin-right: 0;
   margin-left: -1px;
   border-left-color: transparent;
-  border-radius: 0 0 4px 4px;
+  border-radius: 2px 0 0 2px;
+}
+.ant-cascader-menu-rtl .ant-cascader-menu:only-child {
+  border-radius: 2px;
 }
 .ant-cascader-menu-rtl .ant-cascader-menu-item-expand {
   padding-right: 12px;

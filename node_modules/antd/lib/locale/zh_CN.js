@@ -53,7 +53,13 @@ var localeValues = {
   Transfer: {
     searchPlaceholder: '请输入搜索内容',
     itemUnit: '项',
-    itemsUnit: '项'
+    itemsUnit: '项',
+    remove: '删除',
+    selectCurrent: '全选当页',
+    removeCurrent: '删除当页',
+    selectAll: '全选所有',
+    removeAll: '删除全部',
+    selectInvert: '反选当页'
   },
   Upload: {
     uploading: '文件上传中',

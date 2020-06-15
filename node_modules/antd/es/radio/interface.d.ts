@@ -15,10 +15,6 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
     id?: string;
     buttonStyle?: RadioGroupButtonStyle;
 }
-export interface RadioGroupState {
-    value: any;
-    prevPropValue: any;
-}
 export interface RadioGroupContextProps {
     onChange: (e: RadioChangeEvent) => void;
     value: any;

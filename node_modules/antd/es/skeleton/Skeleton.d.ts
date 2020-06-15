@@ -13,6 +13,7 @@ export interface SkeletonProps {
     avatar?: SkeletonAvatarProps | boolean;
     title?: SkeletonTitleProps | boolean;
     paragraph?: SkeletonParagraphProps | boolean;
+    round?: boolean;
 }
 declare const Skeleton: {
     (props: SkeletonProps): JSX.Element;

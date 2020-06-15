@@ -2,5 +2,6 @@
   "cSpell.words": [
     "Gmail",
     "Popconfirm"
-  ]
+  ],
+  "git.ignoreLimitWarning": true
 }

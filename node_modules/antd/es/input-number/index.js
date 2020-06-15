@@ -22,7 +22,7 @@ import UpOutlined from '@ant-design/icons/UpOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import { ConfigConsumer } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
-var InputNumber = React.forwardRef(function (props, ref) {
+var InputNumber = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var renderInputNumber = function renderInputNumber(_ref) {
     var getPrefixCls = _ref.getPrefixCls,
         direction = _ref.direction;

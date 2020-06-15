@@ -21,6 +21,8 @@ var _PlusSquareOutlined = _interopRequireDefault(require("@ant-design/icons/Plus
 
 var _CaretDownFilled = _interopRequireDefault(require("@ant-design/icons/CaretDownFilled"));
 
+var _reactNode = require("../../_util/reactNode");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -46,8 +48,8 @@ function renderSwitcherIcon(prefixCls, switcherIcon, showLine, _ref) {
 
   var switcherCls = "".concat(prefixCls, "-switcher-icon");
 
-  if (React.isValidElement(switcherIcon)) {
-    return React.cloneElement(switcherIcon, {
+  if ((0, _reactNode.isValidElement)(switcherIcon)) {
+    return (0, _reactNode.cloneElement)(switcherIcon, {
       className: (0, _classnames["default"])(switcherIcon.props.className || '', switcherCls)
     });
   }

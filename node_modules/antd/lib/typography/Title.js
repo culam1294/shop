@@ -9,7 +9,7 @@ exports["default"] = void 0;
 
 var React = _interopRequireWildcard(require("react"));
 
-var _warning = _interopRequireDefault(require("warning"));
+var _devWarning = _interopRequireDefault(require("../_util/devWarning"));
 
 var _Base = _interopRequireDefault(require("./Base"));
 
@@ -48,7 +48,7 @@ var Title = function Title(props) {
   if (TITLE_ELE_LIST.indexOf(level) !== -1) {
     component = "h".concat(level);
   } else {
-    (0, _warning["default"])(false, 'Title only accept `1 | 2 | 3 | 4` as `level` value.');
+    (0, _devWarning["default"])(false, 'Typography.Title', 'Title only accept `1 | 2 | 3 | 4` as `level` value.');
     component = 'h1';
   }
 

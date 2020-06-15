@@ -1,57 +1,89 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   useRouteMatch,
-  useParams,
-  useHistory,
   Link,
 } from "react-router-dom";
-import Page1 from "./Page1";
-import Page2 from "./Page2";
-import Page3 from "./Page3";
-import NotFound from "../notFound";
-import { Menu, Layout } from "antd";
+import Profile from "./ProfileView";
+import Notification from "./Notification";
+import AddressManagement from "./AddressManagement";
+import NotFound from "../NotFound";
+import { Menu, Layout, Button } from "antd";
+import { useSelector, useDispatch } from "react-redux";
+import { selectMenuX } from "../../action/SelectMenu";
+import {
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  PieChartOutlined,
+} from "@ant-design/icons";
 
 export default function ProfileUser() {
   const match = useRouteMatch();
-  const params = useParams();
-  const history = useHistory();
-  console.log(history);
-  console.log(params);
-  console.log(match);
-  // const handleClick = () => {
-  //   history.push("/");
-  // };
+  const dispatch = useDispatch();
+  const selectMenu = useSelector((state) => state.selectMenu);
+  const onClickMenu = (e) => {
+    dispatch(selectMenuX(e.key));
+  };
   const { Content } = Layout;
+  const [collapsed, setCollapsed] = useState(true);
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
   return (
     <Router>
-      <div style={{ display: "flex" }}>
-        <Menu
-          // onClick={this.handleClick}
-          style={{ width: 200 }}
-          defaultSelectedKeys={["0"]}
-          // defaultOpenKeys={["0"]}
-          mode="inline"
-        >
-          <Menu.Item key="0">
-            <Link to={`${match.url}/page1`}>Your Profile</Link>
-          </Menu.Item>
-          <Menu.Item key="1">
-            <Link to={`${match.url}/page2`}>Notification</Link>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Link to={`${match.url}/page3`}>address management</Link>
-          </Menu.Item>
-        </Menu>
-        <Content style={{minHeight: 700}}>
-        <Switch>
-          <Route exact path={`${match.url}/page1`} component={Page1} />
-          <Route path={`${match.url}/page2`} component={Page2} />
-          <Route path={`${match.url}/page3`} component={Page3} />
-          <Route path={`${match.url}/*`} component={NotFound} />
-        </Switch>
+      <div
+        style={{
+          display: "flex",
+          border: "0.2px solid grey",
+          padding: 20,
+          margin: "20px 0px",
+          background: "#fff",
+          borderRadius: 10,
+        }}
+      >
+        <div>
+          <Button
+            type="primary"
+            onClick={() => toggleCollapsed()}
+            style={{ marginBottom: 16 }}
+          >
+            {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          </Button>
+          <Menu
+            onClick={(e) => onClickMenu(e)}
+            selectedKeys={[selectMenu]}
+            mode="inline"
+            inlineCollapsed={collapsed}
+            // theme="dark"
+          >
+            <Menu.Item key={4} icon={<PieChartOutlined />}>
+              <Link to={`${match.url}/profile`}>Your Profile</Link>
+            </Menu.Item>
+            <Menu.Item key={5} icon={<PieChartOutlined />}>
+              <Link to={`${match.url}/notification`}>Notification</Link>
+            </Menu.Item>
+            <Menu.Item key={6} icon={<PieChartOutlined />}>
+              <Link to={`${match.url}/addressManagement`}>
+                Address management
+              </Link>
+            </Menu.Item>
+          </Menu>
+        </div>
+        <Content style={{ minHeight: 700 }}>
+          <Switch>
+            <Route exact path={`${match.url}/profile`} component={Profile} />
+            <Route
+              path={`${match.url}/notification`}
+              component={Notification}
+            />
+            <Route
+              path={`${match.url}/addressManagement`}
+              component={AddressManagement}
+            />
+            <Route path={`${match.url}/*`} component={NotFound} />
+          </Switch>
         </Content>
       </div>
     </Router>

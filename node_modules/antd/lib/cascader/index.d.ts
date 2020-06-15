@@ -3,7 +3,7 @@ import Input from '../input';
 import { ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 export interface CascaderOptionType {
-    value?: string;
+    value?: string | number;
     label?: React.ReactNode;
     disabled?: boolean;
     isLeaf?: boolean;
@@ -12,16 +12,17 @@ export interface CascaderOptionType {
     [key: string]: any;
 }
 export interface FieldNamesType {
-    value?: string;
+    value?: string | number;
     label?: string;
     children?: string;
 }
 export interface FilledFieldNamesType {
-    value: string;
+    value: string | number;
     label: string;
     children: string;
 }
 export declare type CascaderExpandTrigger = 'click' | 'hover';
+export declare type CascaderValueType = (string | number)[];
 export interface ShowSearchType {
     filter?: (inputValue: string, path: CascaderOptionType[], names: FilledFieldNamesType) => boolean;
     render?: (inputValue: string, path: CascaderOptionType[], prefixCls: string | undefined, names: FilledFieldNamesType) => React.ReactNode;
@@ -33,11 +34,11 @@ export interface CascaderProps {
     /** 可选项数据源 */
     options: CascaderOptionType[];
     /** 默认的选中项 */
-    defaultValue?: string[];
+    defaultValue?: CascaderValueType;
     /** 指定选中项 */
-    value?: string[];
+    value?: CascaderValueType;
     /** 选择完成后的回调 */
-    onChange?: (value: string[], selectedOptions?: CascaderOptionType[]) => void;
+    onChange?: (value: CascaderValueType, selectedOptions?: CascaderOptionType[]) => void;
     /** 选择后展示的渲染函数 */
     displayRender?: (label: string[], selectedOptions?: CascaderOptionType[]) => React.ReactNode;
     /** 自定义样式 */
@@ -58,6 +59,8 @@ export interface CascaderProps {
     disabled?: boolean;
     /** 是否支持清除 */
     allowClear?: boolean;
+    /** 自动获取焦点 */
+    autoFocus?: boolean;
     showSearch?: boolean | ShowSearchType;
     notFoundContent?: React.ReactNode;
     loadData?: (selectedOptions?: CascaderOptionType[]) => void;
@@ -78,7 +81,7 @@ export interface CascaderProps {
 export interface CascaderState {
     inputFocused: boolean;
     inputValue: string;
-    value: string[];
+    value: CascaderValueType;
     popupVisible: boolean | undefined;
     flattenOptions: CascaderOptionType[][] | undefined;
     prevProps: CascaderProps;
@@ -98,16 +101,16 @@ declare class Cascader extends React.Component<CascaderProps, CascaderState> {
     cachedOptions: CascaderOptionType[];
     private input;
     constructor(props: CascaderProps);
-    setValue: (value: string[], selectedOptions?: CascaderOptionType[]) => void;
+    setValue: (value: CascaderValueType, selectedOptions?: CascaderOptionType[]) => void;
     getLabel(): any;
     saveInput: (node: Input) => void;
     handleChange: (value: any, selectedOptions: CascaderOptionType[]) => void;
     handlePopupVisibleChange: (popupVisible: boolean) => void;
     handleInputBlur: () => void;
-    handleInputClick: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
+    handleInputClick: (e: React.MouseEvent<HTMLInputElement>) => void;
     handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
     handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    clearSelection: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+    clearSelection: (e: React.MouseEvent<HTMLElement>) => void;
     generateFilteredOptions(prefixCls: string | undefined, renderEmpty: RenderEmptyHandler): CascaderOptionType[];
     focus(): void;
     blur(): void;

@@ -11,7 +11,7 @@ var React = _interopRequireWildcard(require("react"));
 
 var _rcFieldForm = require("rc-field-form");
 
-var _warning = _interopRequireDefault(require("../_util/warning"));
+var _devWarning = _interopRequireDefault(require("../_util/devWarning"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -38,7 +38,7 @@ var FormList = function FormList(_a) {
   var children = _a.children,
       props = __rest(_a, ["children"]);
 
-  (0, _warning["default"])(!!props.name, 'Form.List', 'Miss `name` prop.');
+  (0, _devWarning["default"])(!!props.name, 'Form.List', 'Miss `name` prop.');
   return /*#__PURE__*/React.createElement(_rcFieldForm.List, props, function (fields, operation) {
     return children(fields.map(function (field) {
       return _extends(_extends({}, field), {

@@ -81,7 +81,8 @@ var Skeleton = function Skeleton(props) {
         avatar = props.avatar,
         title = props.title,
         paragraph = props.paragraph,
-        active = props.active;
+        active = props.active,
+        round = props.round;
     var prefixCls = getPrefixCls('skeleton', customizePrefixCls);
 
     if (loading || !('loading' in props)) {
@@ -134,7 +135,7 @@ var Skeleton = function Skeleton(props) {
         }, $title, paragraphNode);
       }
 
-      var cls = classNames(prefixCls, className, (_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-with-avatar"), hasAvatar), _defineProperty(_classNames, "".concat(prefixCls, "-active"), active), _defineProperty(_classNames, "".concat(prefixCls, "-rtl"), direction === 'rtl'), _classNames));
+      var cls = classNames(prefixCls, className, (_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-with-avatar"), hasAvatar), _defineProperty(_classNames, "".concat(prefixCls, "-active"), active), _defineProperty(_classNames, "".concat(prefixCls, "-rtl"), direction === 'rtl'), _defineProperty(_classNames, "".concat(prefixCls, "-round"), round), _classNames));
       return /*#__PURE__*/React.createElement("div", {
         className: cls
       }, avatarNode, contentNode);

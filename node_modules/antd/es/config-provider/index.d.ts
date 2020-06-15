@@ -29,10 +29,8 @@ export interface ConfigProviderProps {
     space?: {
         size?: SizeType | number;
     };
+    virtual?: boolean;
+    dropdownMatchSelectWidth?: boolean;
 }
-declare class ConfigProvider extends React.Component<ConfigProviderProps> {
-    getPrefixClsWrapper: (context: ConfigConsumerProps) => (suffixCls: string, customizePrefixCls?: string | undefined) => string;
-    renderProvider: (context: ConfigConsumerProps, legacyLocale: Locale) => JSX.Element;
-    render(): JSX.Element;
-}
+declare const ConfigProvider: React.FC<ConfigProviderProps>;
 export default ConfigProvider;

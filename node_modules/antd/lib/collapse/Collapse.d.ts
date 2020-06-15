@@ -1,6 +1,5 @@
 import * as React from 'react';
 import CollapsePanel from './CollapsePanel';
-import { ConfigConsumerProps } from '../config-provider';
 export declare type ExpandIconPosition = 'left' | 'right' | undefined;
 export interface CollapseProps {
     activeKey?: Array<string | number> | string | number;
@@ -26,14 +25,8 @@ interface PanelProps {
     disabled?: boolean;
     extra?: React.ReactNode;
 }
-export default class Collapse extends React.Component<CollapseProps, any> {
-    static Panel: typeof CollapsePanel;
-    static defaultProps: {
-        bordered: boolean;
-    };
-    getIconPosition(direction?: string): import("../transfer").TransferDirection;
-    renderExpandIcon: (panelProps: PanelProps | undefined, prefixCls: string) => {} | null | undefined;
-    renderCollapse: ({ getPrefixCls, direction }: ConfigConsumerProps) => JSX.Element;
-    render(): JSX.Element;
+interface CollapseInterface extends React.FC<CollapseProps> {
+    Panel: typeof CollapsePanel;
 }
-export {};
+declare const Collapse: CollapseInterface;
+export default Collapse;

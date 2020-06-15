@@ -34,7 +34,7 @@ var Cell = function Cell(_ref) {
     style: style,
     colSpan: span
   }, label && /*#__PURE__*/React.createElement("span", {
-    className: classNames("".concat(itemPrefixCls, "-item-label"), _defineProperty({}, "".concat(itemPrefixCls, "-item-colon"), colon))
+    className: classNames("".concat(itemPrefixCls, "-item-label"), _defineProperty({}, "".concat(itemPrefixCls, "-item-no-colon"), !colon))
   }, label), content && /*#__PURE__*/React.createElement("span", {
     className: classNames("".concat(itemPrefixCls, "-item-content"))
   }, content));

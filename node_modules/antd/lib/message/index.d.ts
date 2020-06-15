@@ -15,6 +15,8 @@ export interface ArgsProps {
     onClose?: () => void;
     icon?: React.ReactNode;
     key?: string | number;
+    style?: React.CSSProperties;
+    className?: string;
 }
 declare type ConfigContent = React.ReactNode | string;
 declare type ConfigDuration = number | (() => void);

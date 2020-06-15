@@ -5,7 +5,7 @@ export default function FooterPage() {
   const { Footer } = Layout;
 
   return (
-    <Footer style={{ backgroundColor: "black", marginTop: 20 }}>
+    <Footer style={{ backgroundColor: "black" }}>
       <div
         style={{
           display: "flex",

@@ -5,6 +5,7 @@ export interface ConfigProps {
     top?: number;
     bottom?: number;
     duration?: number;
+    prefixCls?: string;
     placement?: NotificationPlacement;
     getContainer?: () => HTMLElement;
     closeIcon?: React.ReactNode;

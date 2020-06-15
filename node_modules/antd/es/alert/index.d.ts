@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { ConfigConsumerProps } from '../config-provider';
 import ErrorBoundary from './ErrorBoundary';
 export interface AlertProps {
     /**
@@ -31,18 +30,8 @@ export interface AlertProps {
     onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
     onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
-export interface AlertState {
-    closing: boolean;
-    closed: boolean;
+interface AlertInterface extends React.FC<AlertProps> {
+    ErrorBoundary: typeof ErrorBoundary;
 }
-export default class Alert extends React.Component<AlertProps, AlertState> {
-    static ErrorBoundary: typeof ErrorBoundary;
-    state: {
-        closing: boolean;
-        closed: boolean;
-    };
-    handleClose: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-    animationEnd: () => void;
-    renderAlert: ({ getPrefixCls, direction }: ConfigConsumerProps) => JSX.Element | null;
-    render(): JSX.Element;
-}
+declare const Alert: AlertInterface;
+export default Alert;

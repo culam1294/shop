@@ -1,2 +1,2 @@
-declare var _default: "4.2.0";
-export default _default;
+import version from './version';
+export default version;

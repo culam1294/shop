@@ -5,12 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _warning = _interopRequireDefault(require("../_util/warning"));
+var _devWarning = _interopRequireDefault(require("../_util/devWarning"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var Icon = function Icon() {
-  (0, _warning["default"])(false, 'Icon', 'Empty Icon');
+  (0, _devWarning["default"])(false, 'Icon', 'Empty Icon');
   return null;
 };
 

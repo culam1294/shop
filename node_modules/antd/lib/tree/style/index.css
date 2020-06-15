@@ -363,7 +363,7 @@
 .ant-tree .ant-tree-switcher .ant-select-tree-switcher-icon {
   font-size: 10px;
   display: inline-block;
-  font-weight: bold;
+  vertical-align: baseline;
 }
 .ant-tree .ant-tree-switcher .ant-tree-switcher-icon svg,
 .ant-tree .ant-tree-switcher .ant-select-tree-switcher-icon svg {
@@ -475,4 +475,10 @@
   left: -12px;
   border-right: none;
   border-left: 1px solid #d9d9d9;
+}
+.ant-tree-rtl.ant-tree .ant-tree-checkbox {
+  margin: 4px 0 0 8px;
+}
+.ant-tree-select-dropdown-rtl .ant-select-tree .ant-select-tree-checkbox {
+  margin: 4px 0 0 8px;
 }

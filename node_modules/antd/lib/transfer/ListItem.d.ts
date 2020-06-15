@@ -7,7 +7,9 @@ declare type ListItemProps = {
     checked?: boolean;
     prefixCls: string;
     onClick: (item: TransferItem) => void;
+    onRemove?: (item: TransferItem) => void;
     item: TransferItem;
+    showRemove?: boolean;
 };
 declare const _default: React.MemoExoticComponent<(props: ListItemProps) => JSX.Element>;
 export default _default;

@@ -175,3 +175,6 @@
 .ant-picker-calendar-rtl.ant-picker-calendar-full .ant-picker-panel .ant-picker-body th {
   padding: 0 0 5px 12px;
 }
+.ant-picker-calendar-rtl.ant-picker-calendar-full .ant-picker-panel .ant-picker-calendar-date-content {
+  text-align: right;
+}

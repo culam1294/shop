@@ -47,15 +47,8 @@ export interface ListConsumerProps {
 }
 export declare const ListContext: React.Context<ListConsumerProps>;
 export declare const ListConsumer: React.Consumer<ListConsumerProps>;
-declare function List<T>({ pagination, ...props }: ListProps<T>): JSX.Element;
+declare function List<T>({ pagination, prefixCls: customizePrefixCls, bordered, split, className, children, itemLayout, loadMore, grid, dataSource, size, header, footer, loading, rowKey, renderItem, locale, ...rest }: ListProps<T>): JSX.Element;
 declare namespace List {
-    var defaultProps: {
-        dataSource: never[];
-        bordered: boolean;
-        split: boolean;
-        loading: boolean;
-        pagination: false | PaginationConfig | undefined;
-    };
     var Item: import("./Item").ListItemTypeProps;
 }
 export default List;

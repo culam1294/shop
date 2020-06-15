@@ -4,10 +4,12 @@ export interface AvatarProps {
     /** Shape of avatar, options:`circle`, `square` */
     shape?: 'circle' | 'square';
     size?: 'large' | 'small' | 'default' | number;
+    gap?: number;
     /** Src of image avatar */
     src?: string;
     /** Srcset of image avatar */
     srcSet?: string;
+    draggable?: boolean;
     /** icon to be used in avatar */
     icon?: React.ReactNode;
     style?: React.CSSProperties;

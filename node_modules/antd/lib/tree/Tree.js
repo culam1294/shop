@@ -31,12 +31,13 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var Tree = React.forwardRef(function (props, ref) {
+var Tree = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var _classNames;
 
   var _React$useContext = React.useContext(_configProvider.ConfigContext),
       getPrefixCls = _React$useContext.getPrefixCls,
-      direction = _React$useContext.direction;
+      direction = _React$useContext.direction,
+      virtual = _React$useContext.virtual;
 
   var customizePrefixCls = props.prefixCls,
       className = props.className,
@@ -49,7 +50,8 @@ var Tree = React.forwardRef(function (props, ref) {
   var prefixCls = getPrefixCls('tree', customizePrefixCls);
   return /*#__PURE__*/React.createElement(_rcTree["default"], _extends({
     itemHeight: 20,
-    ref: ref
+    ref: ref,
+    virtual: virtual
   }, props, {
     prefixCls: prefixCls,
     className: (0, _classnames["default"])(className, (_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-icon-hide"), !showIcon), _defineProperty(_classNames, "".concat(prefixCls, "-block-node"), blockNode), _defineProperty(_classNames, "".concat(prefixCls, "-rtl"), direction === 'rtl'), _classNames)),

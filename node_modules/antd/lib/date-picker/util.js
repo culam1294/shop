@@ -6,7 +6,11 @@ Object.defineProperty(exports, "__esModule", {
 exports.getPlaceholder = getPlaceholder;
 exports.getRangePlaceholder = getRangePlaceholder;
 
-function getPlaceholder(picker, locale) {
+function getPlaceholder(picker, locale, customizePlaceholder) {
+  if (customizePlaceholder !== undefined) {
+    return customizePlaceholder;
+  }
+
   if (picker === 'year' && locale.lang.yearPlaceholder) {
     return locale.lang.yearPlaceholder;
   }
@@ -30,7 +34,11 @@ function getPlaceholder(picker, locale) {
   return locale.lang.placeholder;
 }
 
-function getRangePlaceholder(picker, locale) {
+function getRangePlaceholder(picker, locale, customizePlaceholder) {
+  if (customizePlaceholder !== undefined) {
+    return customizePlaceholder;
+  }
+
   if (picker === 'year' && locale.lang.yearPlaceholder) {
     return locale.lang.rangeYearPlaceholder;
   }

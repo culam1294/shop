@@ -39,39 +39,37 @@ var __rest = void 0 && (void 0).__rest || function (s, e) {
 };
 
 var TimelineItem = function TimelineItem(props) {
-  return /*#__PURE__*/React.createElement(_configProvider.ConfigConsumer, null, function (_ref) {
-    var _classNames, _classNames2;
+  var _classNames, _classNames2;
 
-    var getPrefixCls = _ref.getPrefixCls;
+  var _React$useContext = React.useContext(_configProvider.ConfigContext),
+      getPrefixCls = _React$useContext.getPrefixCls;
 
-    var customizePrefixCls = props.prefixCls,
-        className = props.className,
-        _props$color = props.color,
-        color = _props$color === void 0 ? '' : _props$color,
-        children = props.children,
-        pending = props.pending,
-        dot = props.dot,
-        label = props.label,
-        restProps = __rest(props, ["prefixCls", "className", "color", "children", "pending", "dot", "label"]);
+  var customizePrefixCls = props.prefixCls,
+      className = props.className,
+      color = props.color,
+      children = props.children,
+      pending = props.pending,
+      dot = props.dot,
+      label = props.label,
+      restProps = __rest(props, ["prefixCls", "className", "color", "children", "pending", "dot", "label"]);
 
-    var prefixCls = getPrefixCls('timeline', customizePrefixCls);
-    var itemClassName = (0, _classnames["default"])((_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-item"), true), _defineProperty(_classNames, "".concat(prefixCls, "-item-pending"), pending), _classNames), className);
-    var dotClassName = (0, _classnames["default"])((_classNames2 = {}, _defineProperty(_classNames2, "".concat(prefixCls, "-item-head"), true), _defineProperty(_classNames2, "".concat(prefixCls, "-item-head-custom"), dot), _defineProperty(_classNames2, "".concat(prefixCls, "-item-head-").concat(color), true), _classNames2));
-    return /*#__PURE__*/React.createElement("li", _extends({}, (0, _omit["default"])(restProps, ['position']), {
-      className: itemClassName
-    }), label && /*#__PURE__*/React.createElement("div", {
-      className: "".concat(prefixCls, "-item-label")
-    }, label), /*#__PURE__*/React.createElement("div", {
-      className: "".concat(prefixCls, "-item-tail")
-    }), /*#__PURE__*/React.createElement("div", {
-      className: dotClassName,
-      style: {
-        borderColor: /blue|red|green|gray/.test(color) ? undefined : color
-      }
-    }, dot), /*#__PURE__*/React.createElement("div", {
-      className: "".concat(prefixCls, "-item-content")
-    }, children));
-  });
+  var prefixCls = getPrefixCls('timeline', customizePrefixCls);
+  var itemClassName = (0, _classnames["default"])((_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-item"), true), _defineProperty(_classNames, "".concat(prefixCls, "-item-pending"), pending), _classNames), className);
+  var dotClassName = (0, _classnames["default"])((_classNames2 = {}, _defineProperty(_classNames2, "".concat(prefixCls, "-item-head"), true), _defineProperty(_classNames2, "".concat(prefixCls, "-item-head-custom"), dot), _defineProperty(_classNames2, "".concat(prefixCls, "-item-head-").concat(color), true), _classNames2));
+  return /*#__PURE__*/React.createElement("li", _extends({}, (0, _omit["default"])(restProps, ['position']), {
+    className: itemClassName
+  }), label && /*#__PURE__*/React.createElement("div", {
+    className: "".concat(prefixCls, "-item-label")
+  }, label), /*#__PURE__*/React.createElement("div", {
+    className: "".concat(prefixCls, "-item-tail")
+  }), /*#__PURE__*/React.createElement("div", {
+    className: dotClassName,
+    style: {
+      borderColor: /blue|red|green|gray/.test(color || '') ? undefined : color
+    }
+  }, dot), /*#__PURE__*/React.createElement("div", {
+    className: "".concat(prefixCls, "-item-content")
+  }, children));
 };
 
 TimelineItem.defaultProps = {

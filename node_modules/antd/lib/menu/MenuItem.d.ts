@@ -6,6 +6,7 @@ export interface MenuItemProps extends Omit<React.HTMLAttributes<HTMLLIElement>,
     disabled?: boolean;
     level?: number;
     icon?: React.ReactNode;
+    danger?: boolean;
     title?: React.ReactNode;
     children?: React.ReactNode;
     className?: string;
@@ -23,9 +24,9 @@ export interface MenuItemProps extends Omit<React.HTMLAttributes<HTMLLIElement>,
 export default class MenuItem extends React.Component<MenuItemProps> {
     static isMenuItem: boolean;
     private menuItem;
-    onKeyDown: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+    onKeyDown: (e: React.MouseEvent<HTMLElement>) => void;
     saveMenuItem: (menuItem: this) => void;
-    renderItemChildren(): {} | null | undefined;
+    renderItemChildren(inlineCollapsed: boolean): {} | null | undefined;
     renderItem: ({ siderCollapsed }: SiderContextProps) => JSX.Element;
     render(): JSX.Element;
 }

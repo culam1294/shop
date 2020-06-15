@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var React = _interopRequireWildcard(require("react"));
 
-var _warning = _interopRequireDefault(require("../_util/warning"));
+var _devWarning = _interopRequireDefault(require("../_util/devWarning"));
 
 var _Base = _interopRequireDefault(require("./Base"));
 
@@ -38,7 +38,7 @@ var Text = function Text(_a) {
   var ellipsis = _a.ellipsis,
       restProps = __rest(_a, ["ellipsis"]);
 
-  (0, _warning["default"])(_typeof(ellipsis) !== 'object', 'Typography.Text', '`ellipsis` only supports boolean value.');
+  (0, _devWarning["default"])(_typeof(ellipsis) !== 'object', 'Typography.Text', '`ellipsis` only supports boolean value.');
   return /*#__PURE__*/React.createElement(_Base["default"], _extends({}, restProps, {
     ellipsis: !!ellipsis,
     component: "span"

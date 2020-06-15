@@ -11,7 +11,15 @@ var React = _interopRequireWildcard(require("react"));
 
 var _classnames = _interopRequireDefault(require("classnames"));
 
+var _icons = require("@ant-design/icons");
+
+var _default2 = _interopRequireDefault(require("../locale/default"));
+
 var _checkbox = _interopRequireDefault(require("../checkbox"));
+
+var _transButton = _interopRequireDefault(require("../_util/transButton"));
+
+var _LocaleReceiver = _interopRequireDefault(require("../locale-provider/LocaleReceiver"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -30,7 +38,9 @@ var ListItem = function ListItem(props) {
       checked = props.checked,
       disabled = props.disabled,
       prefixCls = props.prefixCls,
-      onClick = props.onClick;
+      onClick = props.onClick,
+      onRemove = props.onRemove,
+      showRemove = props.showRemove;
   var className = (0, _classnames["default"])((_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-content-item"), true), _defineProperty(_classNames, "".concat(prefixCls, "-content-item-disabled"), disabled || item.disabled), _defineProperty(_classNames, "".concat(prefixCls, "-content-item-checked"), checked), _classNames));
   var title;
 
@@ -38,21 +48,40 @@ var ListItem = function ListItem(props) {
     title = String(renderedText);
   }
 
-  var listItem = /*#__PURE__*/React.createElement("li", {
-    className: className,
-    title: title,
-    onClick: disabled || item.disabled ? undefined : function () {
+  return /*#__PURE__*/React.createElement(_LocaleReceiver["default"], {
+    componentName: "Transfer",
+    defaultLocale: _default2["default"].Transfer
+  }, function (transferLocale) {
+    var liProps = {
+      className: className,
+      title: title
+    };
+    var labelNode = /*#__PURE__*/React.createElement("span", {
+      className: "".concat(prefixCls, "-content-item-text")
+    }, renderedEl); // Show remove
+
+    if (showRemove) {
+      return /*#__PURE__*/React.createElement("li", liProps, labelNode, /*#__PURE__*/React.createElement(_transButton["default"], {
+        disabled: disabled || item.disabled,
+        className: "".concat(prefixCls, "-content-item-remove"),
+        "aria-label": transferLocale.remove,
+        onClick: function onClick() {
+          onRemove === null || onRemove === void 0 ? void 0 : onRemove(item);
+        }
+      }, /*#__PURE__*/React.createElement(_icons.DeleteOutlined, null)));
+    } // Default click to select
+
+
+    liProps.onClick = disabled || item.disabled ? undefined : function () {
       return onClick(item);
-    }
-  }, /*#__PURE__*/React.createElement(_checkbox["default"], {
-    checked: checked,
-    disabled: disabled || item.disabled
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "".concat(prefixCls, "-content-item-text")
-  }, renderedEl));
-  return listItem;
+    };
+    return /*#__PURE__*/React.createElement("li", liProps, /*#__PURE__*/React.createElement(_checkbox["default"], {
+      checked: checked,
+      disabled: disabled || item.disabled
+    }), labelNode);
+  });
 };
 
-var _default = React.memo(ListItem);
+var _default = /*#__PURE__*/React.memo(ListItem);
 
 exports["default"] = _default;

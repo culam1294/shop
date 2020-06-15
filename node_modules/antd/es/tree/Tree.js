@@ -9,12 +9,13 @@ import DirectoryTree from './DirectoryTree';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
 import renderSwitcherIcon from './utils/iconUtil';
-var Tree = React.forwardRef(function (props, ref) {
+var Tree = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var _classNames;
 
   var _React$useContext = React.useContext(ConfigContext),
       getPrefixCls = _React$useContext.getPrefixCls,
-      direction = _React$useContext.direction;
+      direction = _React$useContext.direction,
+      virtual = _React$useContext.virtual;
 
   var customizePrefixCls = props.prefixCls,
       className = props.className,
@@ -27,7 +28,8 @@ var Tree = React.forwardRef(function (props, ref) {
   var prefixCls = getPrefixCls('tree', customizePrefixCls);
   return /*#__PURE__*/React.createElement(RcTree, _extends({
     itemHeight: 20,
-    ref: ref
+    ref: ref,
+    virtual: virtual
   }, props, {
     prefixCls: prefixCls,
     className: classNames(className, (_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-icon-hide"), !showIcon), _defineProperty(_classNames, "".concat(prefixCls, "-block-node"), blockNode), _defineProperty(_classNames, "".concat(prefixCls, "-rtl"), direction === 'rtl'), _classNames)),

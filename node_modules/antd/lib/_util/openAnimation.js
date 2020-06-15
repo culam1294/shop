@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _cssAnimation = _interopRequireDefault(require("css-animation"));
+var _cssAnimation = _interopRequireDefault(require("@ant-design/css-animation"));
 
 var _raf = _interopRequireDefault(require("raf"));
 

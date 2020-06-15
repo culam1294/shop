@@ -15,7 +15,7 @@ var _FormList = _interopRequireDefault(require("./FormList"));
 
 var _context = require("./context");
 
-var _warning = _interopRequireDefault(require("../_util/warning"));
+var _devWarning = _interopRequireDefault(require("../_util/devWarning"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -30,7 +30,7 @@ Form.useForm = _Form.useForm;
 Form.Provider = _context.FormProvider;
 
 Form.create = function () {
-  (0, _warning["default"])(false, 'Form', 'antd v4 removed `Form.create`. Please remove or use `@ant-design/compatible` instead.');
+  (0, _devWarning["default"])(false, 'Form', 'antd v4 removed `Form.create`. Please remove or use `@ant-design/compatible` instead.');
 };
 
 var _default = Form;

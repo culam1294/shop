@@ -15,14 +15,16 @@ var __rest = this && this.__rest || function (s, e) {
 
 import * as React from 'react';
 import RcRate from 'rc-rate';
-import omit from 'omit.js';
 import StarFilled from '@ant-design/icons/StarFilled';
 import Tooltip from '../tooltip';
 import { ConfigContext } from '../config-provider';
-var Rate = React.forwardRef(function (props, ref) {
+var Rate = /*#__PURE__*/React.forwardRef(function (_a, ref) {
+  var prefixCls = _a.prefixCls,
+      tooltips = _a.tooltips,
+      props = __rest(_a, ["prefixCls", "tooltips"]);
+
   var characterRender = function characterRender(node, _ref) {
     var index = _ref.index;
-    var tooltips = props.tooltips;
     if (!tooltips) return node;
     return /*#__PURE__*/React.createElement(Tooltip, {
       title: tooltips[index]
@@ -33,15 +35,11 @@ var Rate = React.forwardRef(function (props, ref) {
       getPrefixCls = _React$useContext.getPrefixCls,
       direction = _React$useContext.direction;
 
-  var prefixCls = props.prefixCls,
-      restProps = __rest(props, ["prefixCls"]);
-
-  var rateProps = omit(restProps, ['tooltips']);
   var ratePrefixCls = getPrefixCls('rate', prefixCls);
   return /*#__PURE__*/React.createElement(RcRate, _extends({
     ref: ref,
     characterRender: characterRender
-  }, rateProps, {
+  }, props, {
     prefixCls: ratePrefixCls,
     direction: direction
   }));

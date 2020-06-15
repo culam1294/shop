@@ -36,20 +36,6 @@ var __rest = void 0 && (void 0).__rest || function (s, e) {
   return t;
 };
 
-function getAction(actions) {
-  if (!actions || !actions.length) {
-    return null;
-  } // eslint-disable-next-line react/no-array-index-key
-
-
-  var actionList = actions.map(function (action, index) {
-    return /*#__PURE__*/React.createElement("li", {
-      key: "action-".concat(index)
-    }, action);
-  });
-  return actionList;
-}
-
 var Comment = function Comment(_a) {
   var actions = _a.actions,
       author = _a.author,
@@ -58,9 +44,8 @@ var Comment = function Comment(_a) {
       className = _a.className,
       content = _a.content,
       customizePrefixCls = _a.prefixCls,
-      style = _a.style,
       datetime = _a.datetime,
-      otherProps = __rest(_a, ["actions", "author", "avatar", "children", "className", "content", "prefixCls", "style", "datetime"]);
+      otherProps = __rest(_a, ["actions", "author", "avatar", "children", "className", "content", "prefixCls", "datetime"]);
 
   var _React$useContext = React.useContext(_configProvider.ConfigContext),
       getPrefixCls = _React$useContext.getPrefixCls,
@@ -73,16 +58,21 @@ var Comment = function Comment(_a) {
   };
 
   var prefixCls = getPrefixCls('comment', customizePrefixCls);
-  var avatarDom = /*#__PURE__*/React.createElement("div", {
+  var avatarDom = avatar ? /*#__PURE__*/React.createElement("div", {
     className: "".concat(prefixCls, "-avatar")
   }, typeof avatar === 'string' ? /*#__PURE__*/React.createElement("img", {
     src: avatar,
     alt: "comment-avatar"
-  }) : avatar);
+  }) : avatar) : null;
   var actionDom = actions && actions.length ? /*#__PURE__*/React.createElement("ul", {
     className: "".concat(prefixCls, "-actions")
-  }, getAction(actions)) : null;
-  var authorContent = /*#__PURE__*/React.createElement("div", {
+  }, actions.map(function (action, index) {
+    return /*#__PURE__*/React.createElement("li", {
+      key: "action-".concat(index)
+    }, action) // eslint-disable-line react/no-array-index-key
+    ;
+  })) : null;
+  var authorContent = (author || datetime) && /*#__PURE__*/React.createElement("div", {
     className: "".concat(prefixCls, "-content-author")
   }, author && /*#__PURE__*/React.createElement("span", {
     className: "".concat(prefixCls, "-content-author-name")
@@ -94,14 +84,12 @@ var Comment = function Comment(_a) {
   }, authorContent, /*#__PURE__*/React.createElement("div", {
     className: "".concat(prefixCls, "-content-detail")
   }, content), actionDom);
-  var comment = /*#__PURE__*/React.createElement("div", {
-    className: "".concat(prefixCls, "-inner")
-  }, avatarDom, contentDom);
   var cls = (0, _classnames["default"])(prefixCls, className, _defineProperty({}, "".concat(prefixCls, "-rtl"), direction === 'rtl'));
   return /*#__PURE__*/React.createElement("div", _extends({}, otherProps, {
-    className: cls,
-    style: style
-  }), comment, children ? renderNested(prefixCls, children) : null);
+    className: cls
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "".concat(prefixCls, "-inner")
+  }, avatarDom, contentDom), children ? renderNested(prefixCls, children) : null);
 };
 
 var _default = Comment;

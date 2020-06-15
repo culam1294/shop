@@ -7,6 +7,7 @@ interface TransButtonProps extends React.HTMLAttributes<HTMLDivElement> {
     onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
     noStyle?: boolean;
     autoFocus?: boolean;
+    disabled?: boolean;
 }
 declare class TransButton extends React.Component<TransButtonProps> {
     div?: HTMLDivElement;

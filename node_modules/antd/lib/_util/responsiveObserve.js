@@ -27,15 +27,10 @@ var responsiveObserve = {
   matchHandlers: {},
   dispatch: function dispatch(pointMap) {
     screens = pointMap;
-
-    if (subscribers.length < 1) {
-      return false;
-    }
-
     subscribers.forEach(function (item) {
       item.func(screens);
     });
-    return true;
+    return subscribers.length >= 1;
   },
   subscribe: function subscribe(func) {
     if (subscribers.length === 0) {

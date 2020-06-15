@@ -36,7 +36,7 @@ var __rest = void 0 && (void 0).__rest || function (s, e) {
   return t;
 };
 
-var Popover = React.forwardRef(function (_a, ref) {
+var Popover = /*#__PURE__*/React.forwardRef(function (_a, ref) {
   var customizePrefixCls = _a.prefixCls,
       title = _a.title,
       content = _a.content,

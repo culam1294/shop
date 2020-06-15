@@ -16,7 +16,6 @@ var __rest = this && this.__rest || function (s, e) {
 };
 
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ListContext } from './index';
 import { Col } from '../grid';
@@ -49,7 +48,15 @@ export var Meta = function Meta(_a) {
   }, avatar), (title || description) && content);
 };
 
-var Item = function Item(props) {
+var Item = function Item(_a) {
+  var customizePrefixCls = _a.prefixCls,
+      children = _a.children,
+      actions = _a.actions,
+      extra = _a.extra,
+      className = _a.className,
+      colStyle = _a.colStyle,
+      others = __rest(_a, ["prefixCls", "children", "actions", "extra", "className", "colStyle"]);
+
   var _React$useContext2 = React.useContext(ListContext),
       grid = _React$useContext2.grid,
       itemLayout = _React$useContext2.itemLayout;
@@ -58,7 +65,6 @@ var Item = function Item(props) {
       getPrefixCls = _React$useContext3.getPrefixCls;
 
   var isItemContainsTextNodeAndNotSingular = function isItemContainsTextNodeAndNotSingular() {
-    var children = props.children;
     var result;
     React.Children.forEach(children, function (element) {
       if (typeof element === 'string') {
@@ -69,22 +75,12 @@ var Item = function Item(props) {
   };
 
   var isFlexMode = function isFlexMode() {
-    var extra = props.extra;
-
     if (itemLayout === 'vertical') {
       return !!extra;
     }
 
     return !isItemContainsTextNodeAndNotSingular();
   };
-
-  var customizePrefixCls = props.prefixCls,
-      children = props.children,
-      actions = props.actions,
-      extra = props.extra,
-      className = props.className,
-      colStyle = props.colStyle,
-      others = __rest(props, ["prefixCls", "children", "actions", "extra", "className", "colStyle"]);
 
   var prefixCls = getPrefixCls('list', customizePrefixCls);
   var actionsContent = actions && actions.length > 0 && /*#__PURE__*/React.createElement("ul", {
@@ -121,8 +117,4 @@ var Item = function Item(props) {
 };
 
 Item.Meta = Meta;
-Item.contextTypes = {
-  grid: PropTypes.any,
-  itemLayout: PropTypes.string
-};
 export default Item;

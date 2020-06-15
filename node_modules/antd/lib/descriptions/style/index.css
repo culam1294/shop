@@ -32,13 +32,13 @@
   line-height: 1.5715;
 }
 .ant-descriptions-item-label::after {
+  content: ':';
   position: relative;
   top: -0.5px;
   margin: 0 8px 0 2px;
-  content: ' ';
 }
-.ant-descriptions-item-colon::after {
-  content: ':';
+.ant-descriptions-item-label.ant-descriptions-item-no-colon::after {
+  content: ' ';
 }
 .ant-descriptions-item-no-label::after {
   margin: 0;

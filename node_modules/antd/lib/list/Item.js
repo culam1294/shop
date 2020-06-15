@@ -9,8 +9,6 @@ exports["default"] = exports.Meta = void 0;
 
 var React = _interopRequireWildcard(require("react"));
 
-var PropTypes = _interopRequireWildcard(require("prop-types"));
-
 var _classnames = _interopRequireDefault(require("classnames"));
 
 var _index = require("./index");
@@ -73,7 +71,15 @@ var Meta = function Meta(_a) {
 
 exports.Meta = Meta;
 
-var Item = function Item(props) {
+var Item = function Item(_a) {
+  var customizePrefixCls = _a.prefixCls,
+      children = _a.children,
+      actions = _a.actions,
+      extra = _a.extra,
+      className = _a.className,
+      colStyle = _a.colStyle,
+      others = __rest(_a, ["prefixCls", "children", "actions", "extra", "className", "colStyle"]);
+
   var _React$useContext2 = React.useContext(_index.ListContext),
       grid = _React$useContext2.grid,
       itemLayout = _React$useContext2.itemLayout;
@@ -82,7 +88,6 @@ var Item = function Item(props) {
       getPrefixCls = _React$useContext3.getPrefixCls;
 
   var isItemContainsTextNodeAndNotSingular = function isItemContainsTextNodeAndNotSingular() {
-    var children = props.children;
     var result;
     React.Children.forEach(children, function (element) {
       if (typeof element === 'string') {
@@ -93,22 +98,12 @@ var Item = function Item(props) {
   };
 
   var isFlexMode = function isFlexMode() {
-    var extra = props.extra;
-
     if (itemLayout === 'vertical') {
       return !!extra;
     }
 
     return !isItemContainsTextNodeAndNotSingular();
   };
-
-  var customizePrefixCls = props.prefixCls,
-      children = props.children,
-      actions = props.actions,
-      extra = props.extra,
-      className = props.className,
-      colStyle = props.colStyle,
-      others = __rest(props, ["prefixCls", "children", "actions", "extra", "className", "colStyle"]);
 
   var prefixCls = getPrefixCls('list', customizePrefixCls);
   var actionsContent = actions && actions.length > 0 && /*#__PURE__*/React.createElement("ul", {
@@ -145,9 +140,5 @@ var Item = function Item(props) {
 };
 
 Item.Meta = Meta;
-Item.contextTypes = {
-  grid: PropTypes.any,
-  itemLayout: PropTypes.string
-};
 var _default = Item;
 exports["default"] = _default;

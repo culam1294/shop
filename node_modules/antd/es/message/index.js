@@ -73,7 +73,8 @@ function notice(args) {
       instance.notice({
         key: target,
         duration: duration,
-        style: {},
+        style: args.style || {},
+        className: args.className,
         content: /*#__PURE__*/React.createElement("div", {
           className: messageClass
         }, args.icon || IconComponent && /*#__PURE__*/React.createElement(IconComponent, null), /*#__PURE__*/React.createElement("span", null, args.content)),

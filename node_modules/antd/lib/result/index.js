@@ -21,7 +21,7 @@ var _WarningFilled = _interopRequireDefault(require("@ant-design/icons/WarningFi
 
 var _configProvider = require("../config-provider");
 
-var _warning = _interopRequireDefault(require("../_util/warning"));
+var _devWarning = _interopRequireDefault(require("../_util/devWarning"));
 
 var _noFound = _interopRequireDefault(require("./noFound"));
 
@@ -64,7 +64,7 @@ var renderIcon = function renderIcon(prefixCls, _ref) {
   var status = _ref.status,
       icon = _ref.icon;
   var className = (0, _classnames2["default"])("".concat(prefixCls, "-icon"));
-  (0, _warning["default"])(!(typeof icon === 'string' && icon.length > 2), 'Result', "`icon` is using ReactNode instead of string naming in v4. Please check `".concat(icon, "` at https://ant.design/components/icon"));
+  (0, _devWarning["default"])(!(typeof icon === 'string' && icon.length > 2), 'Result', "`icon` is using ReactNode instead of string naming in v4. Please check `".concat(icon, "` at https://ant.design/components/icon"));
 
   if (ExceptionStatus.includes("".concat(status))) {
     var SVGComponent = ExceptionMap[status];
@@ -73,7 +73,7 @@ var renderIcon = function renderIcon(prefixCls, _ref) {
     }, /*#__PURE__*/React.createElement(SVGComponent, null));
   }
 
-  var iconNode = React.createElement(IconMap[status]);
+  var iconNode = /*#__PURE__*/React.createElement(IconMap[status]);
   return /*#__PURE__*/React.createElement("div", {
     className: className
   }, icon || iconNode);

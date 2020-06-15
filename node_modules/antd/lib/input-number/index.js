@@ -44,7 +44,7 @@ var __rest = void 0 && (void 0).__rest || function (s, e) {
   return t;
 };
 
-var InputNumber = React.forwardRef(function (props, ref) {
+var InputNumber = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var renderInputNumber = function renderInputNumber(_ref) {
     var getPrefixCls = _ref.getPrefixCls,
         direction = _ref.direction;

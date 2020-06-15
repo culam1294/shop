@@ -20,6 +20,7 @@ export interface AbstractCheckboxProps<T> {
     children?: React.ReactNode;
     id?: string;
     autoFocus?: boolean;
+    type?: string;
 }
 export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
     indeterminate?: boolean;

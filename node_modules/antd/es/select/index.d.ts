@@ -32,7 +32,7 @@ declare class Select<ValueType extends SelectValue = SelectValue> extends React.
     focus: () => void;
     blur: () => void;
     getMode: () => "multiple" | "tags" | "SECRET_COMBOBOX_MODE_DO_NOT_USE" | "combobox" | undefined;
-    renderSelect: ({ getPopupContainer: getContextPopupContainer, getPrefixCls, renderEmpty, direction, }: ConfigConsumerProps) => JSX.Element;
+    renderSelect: ({ getPopupContainer: getContextPopupContainer, getPrefixCls, renderEmpty, direction, virtual, dropdownMatchSelectWidth, }: ConfigConsumerProps) => JSX.Element;
     render(): JSX.Element;
 }
 export default Select;

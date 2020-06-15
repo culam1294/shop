@@ -17,7 +17,7 @@ import * as React from 'react';
 import Tooltip from '../tooltip';
 import { ConfigContext } from '../config-provider';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-var Popover = React.forwardRef(function (_a, ref) {
+var Popover = /*#__PURE__*/React.forwardRef(function (_a, ref) {
   var customizePrefixCls = _a.prefixCls,
       title = _a.title,
       content = _a.content,

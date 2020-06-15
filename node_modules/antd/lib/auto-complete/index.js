@@ -17,7 +17,9 @@ var _select = _interopRequireDefault(require("../select"));
 
 var _configProvider = require("../config-provider");
 
-var _warning = _interopRequireDefault(require("../_util/warning"));
+var _devWarning = _interopRequireDefault(require("../_util/devWarning"));
+
+var _reactNode = require("../_util/reactNode");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -49,7 +51,7 @@ var AutoComplete = function AutoComplete(props, ref) {
 
   var customizeInput;
 
-  if (childNodes.length === 1 && React.isValidElement(childNodes[0]) && !isSelectOptionOrSelectOptGroup(childNodes[0])) {
+  if (childNodes.length === 1 && (0, _reactNode.isValidElement)(childNodes[0]) && !isSelectOptionOrSelectOptGroup(childNodes[0])) {
     customizeInput = childNodes[0];
   }
 
@@ -64,7 +66,7 @@ var AutoComplete = function AutoComplete(props, ref) {
     optionChildren = children;
   } else {
     optionChildren = dataSource ? dataSource.map(function (item) {
-      if (React.isValidElement(item)) {
+      if ((0, _reactNode.isValidElement)(item)) {
         return item;
       }
 
@@ -92,8 +94,8 @@ var AutoComplete = function AutoComplete(props, ref) {
 
 
   React.useEffect(function () {
-    (0, _warning["default"])(!('dataSource' in props), 'AutoComplete', '`dataSource` is deprecated, please use `options` instead.');
-    (0, _warning["default"])(!customizeInput || !('size' in props), 'AutoComplete', 'You need to control style self instead of setting `size` when using customize input.');
+    (0, _devWarning["default"])(!('dataSource' in props), 'AutoComplete', '`dataSource` is deprecated, please use `options` instead.');
+    (0, _devWarning["default"])(!customizeInput || !('size' in props), 'AutoComplete', 'You need to control style self instead of setting `size` when using customize input.');
   }, []);
   return /*#__PURE__*/React.createElement(_configProvider.ConfigConsumer, null, function (_ref) {
     var getPrefixCls = _ref.getPrefixCls;
@@ -109,7 +111,7 @@ var AutoComplete = function AutoComplete(props, ref) {
   });
 };
 
-var RefAutoComplete = React.forwardRef(AutoComplete);
+var RefAutoComplete = /*#__PURE__*/React.forwardRef(AutoComplete);
 RefAutoComplete.Option = Option;
 var _default = RefAutoComplete;
 exports["default"] = _default;

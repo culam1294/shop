@@ -11,7 +11,7 @@ var React = _interopRequireWildcard(require("react"));
 
 var _datePicker = _interopRequireDefault(require("../date-picker"));
 
-var _warning = _interopRequireDefault(require("../_util/warning"));
+var _devWarning = _interopRequireDefault(require("../_util/devWarning"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -36,14 +36,14 @@ var __rest = void 0 && (void 0).__rest || function (s, e) {
 
 var InternalTimePicker = _datePicker["default"].TimePicker,
     InternalRangePicker = _datePicker["default"].RangePicker;
-var RangePicker = React.forwardRef(function (props, ref) {
+var RangePicker = /*#__PURE__*/React.forwardRef(function (props, ref) {
   return /*#__PURE__*/React.createElement(InternalRangePicker, _extends({}, props, {
     picker: "time",
     mode: undefined,
     ref: ref
   }));
 });
-var TimePicker = React.forwardRef(function (_a, ref) {
+var TimePicker = /*#__PURE__*/React.forwardRef(function (_a, ref) {
   var addon = _a.addon,
       renderExtraFooter = _a.renderExtraFooter,
       popupClassName = _a.popupClassName,
@@ -55,7 +55,7 @@ var TimePicker = React.forwardRef(function (_a, ref) {
     }
 
     if (addon) {
-      (0, _warning["default"])(false, 'TimePicker', '`addon` is deprecated. Please use `renderExtraFooter` instead.');
+      (0, _devWarning["default"])(false, 'TimePicker', '`addon` is deprecated. Please use `renderExtraFooter` instead.');
       return addon;
     }
 

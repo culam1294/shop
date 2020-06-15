@@ -75,6 +75,11 @@
   display: inline-block;
   vertical-align: top;
 }
+.ant-form-inline .ant-form-item > .ant-form-item-label {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+}
 .ant-form-inline .ant-form-item .ant-form-text {
   display: inline-block;
 }

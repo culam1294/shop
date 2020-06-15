@@ -101,7 +101,7 @@
 }
 .ant-alert-with-description {
   position: relative;
-  padding: 15px 15px 14px 64px;
+  padding: 15px 15px 15px 63px;
   color: rgba(0, 0, 0, 0.65);
   line-height: 1.5715;
   border-radius: 2px;
@@ -117,8 +117,8 @@
 }
 .ant-alert-with-description .ant-alert-close-icon {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 16px;
+  right: 16px;
   font-size: 14px;
   cursor: pointer;
 }
@@ -244,7 +244,7 @@
 }
 .ant-alert.ant-alert-rtl.ant-alert-with-description,
 .ant-alert.ant-alert-rtl.ant-alert-with-description.ant-alert-closable {
-  padding: 15px 64px 15px 15px;
+  padding: 15px 63px 15px 15px;
 }
 .ant-alert.ant-alert-rtl.ant-alert-with-description.ant-alert-no-icon {
   padding: 15px;

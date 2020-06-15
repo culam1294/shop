@@ -15,31 +15,31 @@ var __rest = this && this.__rest || function (s, e) {
 
 import * as React from 'react';
 import Radio from './radio';
-import { ConfigConsumer } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import RadioGroupContext from './context';
 
 var RadioButton = function RadioButton(props, ref) {
   var radioGroupContext = React.useContext(RadioGroupContext);
-  return /*#__PURE__*/React.createElement(ConfigConsumer, null, function (_ref) {
-    var getPrefixCls = _ref.getPrefixCls;
 
-    var customizePrefixCls = props.prefixCls,
-        radioProps = __rest(props, ["prefixCls"]);
+  var _React$useContext = React.useContext(ConfigContext),
+      getPrefixCls = _React$useContext.getPrefixCls;
 
-    var prefixCls = getPrefixCls('radio-button', customizePrefixCls);
+  var customizePrefixCls = props.prefixCls,
+      radioProps = __rest(props, ["prefixCls"]);
 
-    if (radioGroupContext) {
-      radioProps.checked = props.value === radioGroupContext.value;
-      radioProps.disabled = props.disabled || radioGroupContext.disabled;
-    }
+  var prefixCls = getPrefixCls('radio-button', customizePrefixCls);
 
-    return /*#__PURE__*/React.createElement(Radio, _extends({
-      prefixCls: prefixCls
-    }, radioProps, {
-      type: "radio",
-      ref: ref
-    }));
-  });
+  if (radioGroupContext) {
+    radioProps.checked = props.value === radioGroupContext.value;
+    radioProps.disabled = props.disabled || radioGroupContext.disabled;
+  }
+
+  return /*#__PURE__*/React.createElement(Radio, _extends({
+    prefixCls: prefixCls
+  }, radioProps, {
+    type: "radio",
+    ref: ref
+  }));
 };
 
-export default React.forwardRef(RadioButton);
+export default /*#__PURE__*/React.forwardRef(RadioButton);

@@ -11,8 +11,6 @@ var React = _interopRequireWildcard(require("react"));
 
 var _rcRate = _interopRequireDefault(require("rc-rate"));
 
-var _omit = _interopRequireDefault(require("omit.js"));
-
 var _StarFilled = _interopRequireDefault(require("@ant-design/icons/StarFilled"));
 
 var _tooltip = _interopRequireDefault(require("../tooltip"));
@@ -40,10 +38,13 @@ var __rest = void 0 && (void 0).__rest || function (s, e) {
   return t;
 };
 
-var Rate = React.forwardRef(function (props, ref) {
+var Rate = /*#__PURE__*/React.forwardRef(function (_a, ref) {
+  var prefixCls = _a.prefixCls,
+      tooltips = _a.tooltips,
+      props = __rest(_a, ["prefixCls", "tooltips"]);
+
   var characterRender = function characterRender(node, _ref) {
     var index = _ref.index;
-    var tooltips = props.tooltips;
     if (!tooltips) return node;
     return /*#__PURE__*/React.createElement(_tooltip["default"], {
       title: tooltips[index]
@@ -54,15 +55,11 @@ var Rate = React.forwardRef(function (props, ref) {
       getPrefixCls = _React$useContext.getPrefixCls,
       direction = _React$useContext.direction;
 
-  var prefixCls = props.prefixCls,
-      restProps = __rest(props, ["prefixCls"]);
-
-  var rateProps = (0, _omit["default"])(restProps, ['tooltips']);
   var ratePrefixCls = getPrefixCls('rate', prefixCls);
   return /*#__PURE__*/React.createElement(_rcRate["default"], _extends({
     ref: ref,
     characterRender: characterRender
-  }, rateProps, {
+  }, props, {
     prefixCls: ratePrefixCls,
     direction: direction
   }));

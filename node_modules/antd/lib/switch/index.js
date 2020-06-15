@@ -13,8 +13,6 @@ var _rcSwitch = _interopRequireDefault(require("rc-switch"));
 
 var _classnames = _interopRequireDefault(require("classnames"));
 
-var _omit = _interopRequireDefault(require("omit.js"));
-
 var _LoadingOutlined = _interopRequireDefault(require("@ant-design/icons/LoadingOutlined"));
 
 var _wave = _interopRequireDefault(require("../_util/wave"));
@@ -23,7 +21,7 @@ var _configProvider = require("../config-provider");
 
 var _SizeContext = _interopRequireDefault(require("../config-provider/SizeContext"));
 
-var _warning = _interopRequireDefault(require("../_util/warning"));
+var _devWarning = _interopRequireDefault(require("../_util/devWarning"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -35,16 +33,31 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var Switch = React.forwardRef(function (props, ref) {
+var __rest = void 0 && (void 0).__rest || function (s, e) {
+  var t = {};
+
+  for (var p in s) {
+    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+  }
+
+  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+  }
+  return t;
+};
+
+var Switch = /*#__PURE__*/React.forwardRef(function (_a, ref) {
   var _classNames;
 
-  (0, _warning["default"])('checked' in props || !('value' in props), 'Switch', '`value` is not a valid prop, do you mean `checked`?');
-  var customizePrefixCls = props.prefixCls,
-      customizeSize = props.size,
-      loading = props.loading,
-      _props$className = props.className,
-      className = _props$className === void 0 ? '' : _props$className,
-      disabled = props.disabled;
+  var customizePrefixCls = _a.prefixCls,
+      customizeSize = _a.size,
+      loading = _a.loading,
+      _a$className = _a.className,
+      className = _a$className === void 0 ? '' : _a$className,
+      disabled = _a.disabled,
+      props = __rest(_a, ["prefixCls", "size", "loading", "className", "disabled"]);
+
+  (0, _devWarning["default"])('checked' in props || !('value' in props), 'Switch', '`value` is not a valid prop, do you mean `checked`?');
 
   var _React$useContext = React.useContext(_configProvider.ConfigContext),
       getPrefixCls = _React$useContext.getPrefixCls,
@@ -52,13 +65,15 @@ var Switch = React.forwardRef(function (props, ref) {
 
   var size = React.useContext(_SizeContext["default"]);
   var prefixCls = getPrefixCls('switch', customizePrefixCls);
-  var loadingIcon = loading ? /*#__PURE__*/React.createElement(_LoadingOutlined["default"], {
+  var loadingIcon = /*#__PURE__*/React.createElement("div", {
+    className: "".concat(prefixCls, "-handle")
+  }, loading && /*#__PURE__*/React.createElement(_LoadingOutlined["default"], {
     className: "".concat(prefixCls, "-loading-icon")
-  }) : null;
+  }));
   var classes = (0, _classnames["default"])(className, (_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-small"), (customizeSize || size) === 'small'), _defineProperty(_classNames, "".concat(prefixCls, "-loading"), loading), _defineProperty(_classNames, "".concat(prefixCls, "-rtl"), direction === 'rtl'), _classNames));
   return /*#__PURE__*/React.createElement(_wave["default"], {
     insertExtraNode: true
-  }, /*#__PURE__*/React.createElement(_rcSwitch["default"], _extends({}, (0, _omit["default"])(props, ['loading']), {
+  }, /*#__PURE__*/React.createElement(_rcSwitch["default"], _extends({}, props, {
     prefixCls: prefixCls,
     className: classes,
     disabled: disabled || loading,
@@ -67,5 +82,6 @@ var Switch = React.forwardRef(function (props, ref) {
   })));
 });
 Switch.__ANT_SWITCH = true;
+Switch.displayName = 'Switch';
 var _default = Switch;
 exports["default"] = _default;

@@ -24,6 +24,8 @@ export interface ConfigConsumerProps {
     space?: {
         size?: SizeType | number;
     };
+    virtual?: boolean;
+    dropdownMatchSelectWidth?: boolean;
 }
 export declare const ConfigContext: React.Context<ConfigConsumerProps>;
 export declare const ConfigConsumer: React.Consumer<ConfigConsumerProps>;
@@ -34,5 +36,5 @@ interface BasicExportProps {
 interface ConsumerConfig {
     prefixCls: string;
 }
-export declare function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig): <ComponentDef>(Component: IReactComponent<any>) => React.FC<ExportProps> & ComponentDef;
+export declare function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig): <ComponentDef>(Component: IReactComponent) => React.FC<ExportProps> & ComponentDef;
 export {};

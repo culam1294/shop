@@ -15,7 +15,8 @@ var Operation = function Operation(_ref) {
       rightActive = _ref.rightActive,
       className = _ref.className,
       style = _ref.style,
-      direction = _ref.direction;
+      direction = _ref.direction,
+      oneWay = _ref.oneWay;
   return /*#__PURE__*/React.createElement("div", {
     className: className,
     style: style
@@ -25,7 +26,7 @@ var Operation = function Operation(_ref) {
     disabled: disabled || !rightActive,
     onClick: moveToRight,
     icon: direction !== 'rtl' ? /*#__PURE__*/React.createElement(RightOutlined, null) : /*#__PURE__*/React.createElement(LeftOutlined, null)
-  }, rightArrowText), /*#__PURE__*/React.createElement(Button, {
+  }, rightArrowText), !oneWay && /*#__PURE__*/React.createElement(Button, {
     type: "primary",
     size: "small",
     disabled: disabled || !leftActive,

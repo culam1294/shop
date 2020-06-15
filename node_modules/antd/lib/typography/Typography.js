@@ -13,7 +13,7 @@ var _classnames = _interopRequireDefault(require("classnames"));
 
 var _configProvider = require("../config-provider");
 
-var _warning = _interopRequireDefault(require("../_util/warning"));
+var _devWarning = _interopRequireDefault(require("../_util/devWarning"));
 
 var _ref2 = require("../_util/ref");
 
@@ -53,7 +53,7 @@ var Typography = function Typography(_a, ref) {
   var mergedRef = ref;
 
   if (setContentRef) {
-    (0, _warning["default"])(false, 'Typography', '`setContentRef` is deprecated. Please use `ref` instead.');
+    (0, _devWarning["default"])(false, 'Typography', '`setContentRef` is deprecated. Please use `ref` instead.');
     mergedRef = (0, _ref2.composeRef)(ref, setContentRef);
   }
 
@@ -71,7 +71,7 @@ var Typography = function Typography(_a, ref) {
   });
 };
 
-var RefTypography = React.forwardRef(Typography);
+var RefTypography = /*#__PURE__*/React.forwardRef(Typography);
 RefTypography.displayName = 'Typography'; // es default export should use const instead of let
 
 var ExportTypography = RefTypography;
