@@ -25,8 +25,8 @@ export default function ModalForm() {
     setIsLoad(false);
   };
   const layout = {
-    labelCol: { span: 4 },
-    wrapperCol: { span: 12 },
+    labelCol: { span: 5 },
+    wrapperCol: { span: 30 },
   };
 
   return (
@@ -49,7 +49,6 @@ export default function ModalForm() {
           form={form}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-          wrapperCol={{ span: 30 }}
         >
           <Form.Item
             name="Full Name"

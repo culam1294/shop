@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { List, Button, message, Popconfirm, Modal, Empty } from "antd";
+import React from "react";
+import { List, Button, message, Popconfirm, Empty } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import {
   incrementAmount,
@@ -7,6 +7,8 @@ import {
   removeList,
 } from "../../action/List";
 import ButtonOrder from "./ButtonOrder";
+import ModalProducts from "../ModalProducts";
+import { modalProducts } from "../../action/ModalProducts";
 
 export default function Cart() {
   const listData = useSelector((state) => state.list);
@@ -42,65 +44,9 @@ export default function Cart() {
     });
   };
 
-  //Cart
-
-  const [visible, setVisible] = useState(false);
-
-  const handleCancel = () => {
-    setVisible(false);
-  };
-
-  const [id, setId] = useState();
-  const [name, setName] = useState();
-  const [description, setDescription] = useState();
-  const [price, setPrice] = useState();
-  const [image, setImage] = useState();
-  const [detail, setDetail] = useState();
-  const onClick = (item) => {
-    setVisible(true);
-    setId(item.id);
-    setName(item.name);
-    setDescription(item.description);
-    setPrice(item.price);
-    setImage(item.image);
-    setDetail(item.detail);
-  };
-
   return (
     <>
-      <Modal
-        width={750}
-        visible={visible}
-        title={[
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <h3> Product details</h3>
-          </div>,
-        ]}
-        onCancel={handleCancel}
-        footer={
-          <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <Button
-              style={{ margin: "0px 10px" }}
-              type="primary"
-              onClick={handleCancel}
-            >
-              Return
-            </Button>
-          </div>
-        }
-      >
-        <h2>{name}</h2>
-        <p>
-          <i>Description: {description}</i>
-        </p>
-        <p>Detail: {detail}</p>
-        <h3>Price: {price} $</h3>
-        <img
-          style={{ height: "100%", width: "100%", objectFit: "fill" }}
-          alt="img"
-          src={image}
-        />
-      </Modal>
+      <ModalProducts />
       <List
         locale={{
           emptyText: (
@@ -131,13 +77,13 @@ export default function Cart() {
           <List.Item
             key={item.id}
             extra={
-              <a onClick={() => onClick(item)} href>
+              <a onClick={() => dispatch(modalProducts(item))} href>
                 <img width={150} alt="logo" src={item.image} />
               </a>
             }
           >
             <List.Item.Meta />
-            <a href onClick={() => onClick(item)}>
+            <a href onClick={() => dispatch(modalProducts(item))}>
               <h3 style={{ color: "blue" }}>{item.name}</h3>
             </a>
             <h4>
@@ -171,7 +117,6 @@ export default function Cart() {
             >
               <Button type="link">Delete</Button>
             </Popconfirm>
-
             <hr />
           </List.Item>
         )}

@@ -15,7 +15,7 @@ export default function CarouselHome() {
   return (
     <Carousel effect="fade" autoplay>
       {dataCarouselNew.map((item, key) => (
-        <div style={{ height: "260px", width: "100%"}} key={key}>
+        <div style={{ height: "260px", maxWidth: "100%"}} key={key}>
           <img
             style={{ height: "100%", width: "100%", objectFit: 'fill' }}
             src={item.image}

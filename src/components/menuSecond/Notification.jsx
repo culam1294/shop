@@ -21,7 +21,7 @@ export default function Notification() {
     dispatch(selectMenuX(5));
   };
   const content = (
-    <div style={{ width: 300 }}>
+    <div style={{ width: 250 }}>
       <List
         footer={
           <div style={{ display: "flex" }}>

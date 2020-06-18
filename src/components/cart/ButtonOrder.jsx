@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { message, Button } from "antd";
 import { orderSuccess } from "../../action/List";
 import { useHistory } from "react-router-dom";
+import { selectMenuX } from "../../action/SelectMenu";
 
 export default function ButtonOrder() {
   const listData = useSelector((state) => state.list);
@@ -10,6 +11,7 @@ export default function ButtonOrder() {
   const dispatch = useDispatch();
   const [load, setLoad] = useState(false);
   const [isButton, setIsButton] = useState(true);
+  
 
   const orderNow = () => {
     setLoad(true);
@@ -25,8 +27,12 @@ export default function ButtonOrder() {
       ORDER NOW!
     </Button>
   );
+  const onClick= () => {
+    history.push("/");
+    dispatch(selectMenuX(0))
+  }
   const buttonContinueShopping = () => (
-    <Button onClick={() => history.push("/")} type="primary">
+    <Button onClick={() => onClick()} type="primary">
       Continue Shopping!
     </Button>
   );

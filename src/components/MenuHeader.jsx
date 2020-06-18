@@ -3,7 +3,7 @@ import { Menu } from "antd";
 import { selectMenuX } from "../action/SelectMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import MenuSecond from "./menuSecond/MenuSecond";
+
 
 export default function MenuHeader() {
   const selectMenu = useSelector((state) => state.selectMenu);
@@ -21,7 +21,7 @@ export default function MenuHeader() {
       selectedKeys={[selectMenu]}
       defaultSelectedKeys={["0"]}
       style={{
-        fontSize: 20,
+        fontSize: "1.2em",
         display: "flex",
         justifyContent: "center",
         background: "black",

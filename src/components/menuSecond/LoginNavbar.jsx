@@ -57,7 +57,7 @@ export default function LoginNavbar() {
             backgroundColor: "#87d068",
             cursor: "pointer",
             marginLeft: 15,
-            marginRight: -10,
+            marginRight: -5,
           }}
           icon={<UserOutlined />}
         />

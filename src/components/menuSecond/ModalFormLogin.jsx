@@ -8,7 +8,7 @@ export default function ModalForm() {
   const [isLoad, setIsLoad] = useState(false);
   const dispatch = useDispatch();
 
-  const onFinish = async (value) => {
+  const onFinish = async () => {
     setVisible(false);
     setIsLoad(false);
     message.success("Login success!");
@@ -28,6 +28,10 @@ export default function ModalForm() {
     form.resetFields();
     setIsLoad(false);
   };
+  const layout = {
+    labelCol: { span: 5 },
+    wrapperCol: { span: 30 },
+  };
 
   return (
     <>
@@ -44,11 +48,10 @@ export default function ModalForm() {
         footer={null}
       >
         <Form
+          {...layout}
           form={form}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-          wrapperCol={{ span: 20 }}
-          labelCol={{ span: 30 }}
 
           layout="horizontal"
         >

@@ -1,5 +1,5 @@
-export const isLogin =()=>{
-    return {
-        type: 'IS_LOGIN'
-    }
-}
+export const isLogin = () => {
+  return {
+    type: "IS_LOGIN",
+  };
+};

@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import './App.css'
 import { Layout, BackTop } from "antd";
 import "antd/dist/antd.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -14,14 +14,12 @@ import FooterPage from "./components/FooterPage";
 import Home from "./components/home/Home";
 
 function App() {
-  const { Content, Header } = Layout;
+  const { Content } = Layout;
   return (
     <Router>
       <BackTop />
       <Layout className="layout">
-        <Header>
         <MenuHeader />
-        </Header>
         <Content>
           <Switch>
             <Route path="/" exact component={Home} />
