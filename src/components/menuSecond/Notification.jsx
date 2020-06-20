@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Badge, Avatar, Popover, List } from "antd";
 import { BellOutlined, SettingOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectMenuX } from "../../action/SelectMenu";
-import dataNotification from "../profileUser/DataNotification";
+import { fetchNotifications } from "../../action/DataNotifications";
 
 export default function Notification() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchNotifications());
+  }, [dispatch]);
+
+  const dataNotifications = useSelector((state) => state.dataNotifications.dataNotifications);
+
   const text = (
     <div style={{ display: "flex" }}>
       <p style={{ margin: "0px auto" }} href>
@@ -15,7 +23,6 @@ export default function Notification() {
     </div>
   );
   const history = useHistory();
-  const dispatch = useDispatch();
   const showAllNotification = () => {
     history.push("/profile/notification");
     dispatch(selectMenuX(5));
@@ -35,7 +42,7 @@ export default function Notification() {
           </div>
         }
         size="small"
-        dataSource={dataNotification}
+        dataSource={dataNotifications}
         renderItem={(item) => (
           <List.Item>
             <a href>
@@ -53,6 +60,7 @@ export default function Notification() {
       />
     </div>
   );
+
   return (
     <div>
       <Popover
@@ -61,7 +69,7 @@ export default function Notification() {
         content={content}
         trigger="click"
       >
-        <Badge count={dataNotification.length}>
+        <Badge count={dataNotifications.length}>
           <Avatar
             style={{ backgroundColor: "#4267b2", cursor: "pointer" }}
             icon={<BellOutlined />}

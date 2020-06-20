@@ -17,6 +17,9 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   PieChartOutlined,
+  ProfileOutlined,
+  NotificationOutlined,
+  HomeOutlined,
 } from "@ant-design/icons";
 
 export default function ProfileUser() {
@@ -58,13 +61,13 @@ export default function ProfileUser() {
             inlineCollapsed={collapsed}
             // theme="dark"
           >
-            <Menu.Item key={4} icon={<PieChartOutlined />}>
+            <Menu.Item key={4} icon={<ProfileOutlined />}>
               <Link to={`${match.url}/profile`}>Your Profile</Link>
             </Menu.Item>
-            <Menu.Item key={5} icon={<PieChartOutlined />}>
-              <Link to={`${match.url}/notification`}>Notification</Link>
+            <Menu.Item key={5} icon={<NotificationOutlined />}>
+              <Link to={`${match.url}/notification`}>Notifications</Link>
             </Menu.Item>
-            <Menu.Item key={6} icon={<PieChartOutlined />}>
+            <Menu.Item key={6} icon={<HomeOutlined />}>
               <Link to={`${match.url}/addressManagement`}>
                 Address management
               </Link>

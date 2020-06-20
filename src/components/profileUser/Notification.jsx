@@ -1,21 +1,25 @@
 import React from "react";
 import { List, Avatar } from "antd";
-import dataNotification from "./DataNotification";
+import { useSelector } from "react-redux";
+import { BellOutlined } from "@ant-design/icons";
 
 export default function Notification() {
+  const dataNotifications = useSelector(
+    (state) => state.dataNotifications.dataNotifications
+  );
   return (
     <List
-      style={{margin : '0 40px'}}
+      style={{ margin: "0 40px" }}
       itemLayout="horizontal"
-      dataSource={dataNotification}
+      dataSource={dataNotifications}
       renderItem={(item) => (
         <List.Item>
           <List.Item.Meta
             avatar={
-              <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+              <Avatar style={{ background: "red" }} icon={<BellOutlined />} />
             }
             title={<a href>{item.title}</a>}
-            description={item.description}
+            description={item.detail}
           />
         </List.Item>
       )}

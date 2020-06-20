@@ -48,7 +48,7 @@ export default function Volcano() {
           borderRadius: 10,
         }}
       >
-        ˇ<List
+        <List
           header={
             <h3>
               <MenuUnfoldOutlined />

@@ -1,6 +1,7 @@
 import React from "react";
 import { List, Avatar } from "antd";
 import dataAddress from "./DataAddress.js";
+import { HomeOutlined } from "@ant-design/icons";
 
 export default function AddressManagement() {
   return (
@@ -12,7 +13,7 @@ export default function AddressManagement() {
         <List.Item>
           <List.Item.Meta
             avatar={
-              <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+              <Avatar style={{background: 'red'}} icon={<HomeOutlined />} />
             }
             title={<a href="https://ant.design">{item.title}</a>}
             description="Ant Design, a design language for background applications, is refined by Ant UED Team"
