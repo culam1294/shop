@@ -18,7 +18,12 @@ export default function Notification() {
             avatar={
               <Avatar style={{ background: "red" }} icon={<BellOutlined />} />
             }
-            title={<a href>{item.title}</a>}
+            title={
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <a href>{item.title}</a>
+                <i>{item.date}</i>
+              </div>
+            }
             description={item.detail}
           />
         </List.Item>

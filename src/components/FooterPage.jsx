@@ -1,6 +1,5 @@
 import React from "react";
 import { Layout } from "antd";
-import "./FooterPage.css";
 import {
   FacebookOutlined,
   GithubOutlined,
@@ -44,10 +43,10 @@ export default function FooterPage() {
           }}
         >
           <p>My project using Reactjs</p>
-          <p>Redux</p>
-          <p>Thunk</p>
-          <p>Ant Design</p>
-          <p>React-router</p>
+          <p>+Redux</p>
+          <p>+Thunk</p>
+          <p>+Ant Design</p>
+          <p>+React-router</p>
         </div>
         <div
           style={{
@@ -58,12 +57,12 @@ export default function FooterPage() {
         >
           <p>Contact me:</p>
           <p>
-            <a href>
+            <a href="https://www.facebook.com/thebluenguyen">
               <FacebookOutlined /> Facebook
             </a>
           </p>
           <p>
-            <a href>
+            <a href="https://github.com/culam1294">
               <GithubOutlined /> Github
             </a>
           </p>
@@ -74,7 +73,7 @@ export default function FooterPage() {
           </p>
           <p>
             <a href>
-              <MailOutlined /> Gmail
+              <MailOutlined /> lamsphue@gmail.com
             </a>
           </p>
         </div>

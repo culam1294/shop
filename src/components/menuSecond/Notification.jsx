@@ -13,7 +13,9 @@ export default function Notification() {
     dispatch(fetchNotifications());
   }, [dispatch]);
 
-  const dataNotifications = useSelector((state) => state.dataNotifications.dataNotifications);
+  const dataNotifications = useSelector(
+    (state) => state.dataNotifications.dataNotifications
+  );
 
   const text = (
     <div style={{ display: "flex" }}>
@@ -45,16 +47,14 @@ export default function Notification() {
         dataSource={dataNotifications}
         renderItem={(item) => (
           <List.Item>
-            <a href>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <div style={{ marginRight: 7 }}>
-                  <Avatar style={{ backgroundColor: "#3B5998" }}>
-                    <SettingOutlined />
-                  </Avatar>
-                </div>
-                <a href>{item.title}</a>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <div style={{ marginRight: 7 }}>
+                <Avatar style={{ backgroundColor: "#3B5998" }}>
+                  <SettingOutlined />
+                </Avatar>
               </div>
-            </a>
+              <p style={{ fontSize: "0.9em" }}>{item.title}</p>
+            </div>
           </List.Item>
         )}
       />

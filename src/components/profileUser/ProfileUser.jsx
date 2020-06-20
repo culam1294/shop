@@ -59,7 +59,6 @@ export default function ProfileUser() {
             selectedKeys={[selectMenu]}
             mode="inline"
             inlineCollapsed={collapsed}
-            // theme="dark"
           >
             <Menu.Item key={4} icon={<ProfileOutlined />}>
               <Link to={`${match.url}/profile`}>Your Profile</Link>
